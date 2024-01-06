@@ -82,10 +82,10 @@ def fig3():
         fig.update_layout(legend=dict(orientation="v", y=1, yanchor="top", x=1.0, xanchor="right"), template='plotly_dark')
 
         plots.append(fig)
+        st.plotly_chart(fig, use_container_width=True)
 
     for plot in plots:
         plot.show()
-        st.plotly_chart(fig, use_container_width=True)
 
 def fig4():
     fig = go.Figure()
