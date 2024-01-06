@@ -5,6 +5,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 from plotly.offline import iplot
+import streamlit as st
 
 data = pd.read_csv("StudentsPerformance.csv")
 
@@ -43,6 +44,7 @@ def fig1():
     fig.layout.update(title="<b>Multivariate analysis<b>", showlegend=False, height=700, width=1100,
                     template=None, titlefont={'color': 'black', 'size': 24})
     fig.show()
+    st.plotly_chart(fig, use_container_width=True)
 
 def fig2():
     fig = px.sunburst(data, path=['race/ethnicity', 'gender', 'parental level of education'])
