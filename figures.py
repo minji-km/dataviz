@@ -54,6 +54,7 @@ def fig2():
                     height=700,
                     )
     fig.show()
+    st.plotly_chart(fig, use_container_width=True)
 
 def fig3():
     plots = []
@@ -80,6 +81,7 @@ def fig3():
 
     for plot in plots:
         plot.show()
+        st.plotly_chart(fig, use_container_width=True)
 
 def fig4():
     fig = go.Figure()
@@ -102,6 +104,7 @@ def fig4():
                     plot_bgcolor='lightgray',             
     )
     fig.show()
+    st.plotly_chart(fig, use_container_width=True)
 
 def create_scatter_plot(data, gender_colors=None):
     if gender_colors is None:
@@ -140,6 +143,7 @@ def fig5():
     gender_colors = {'male': 'purple', 'female': 'green'}
     scatter_plot = create_scatter_plot(data, gender_colors)
     iplot(scatter_plot)
+    st.plotly_chart(scatter_plot, use_container_width=True)
 
 def fig6():
     data_bp = [go.Box(x =data['reading score'],
@@ -162,6 +166,7 @@ def fig6():
 
     fig = go.Figure(data = data_bp, layout = layout_bp)
     iplot(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 def fig7():
     data_heatmap = [go.Heatmap(x=data['gender'],
@@ -182,11 +187,14 @@ def fig7():
 
     fig = go.Figure(data = data_heatmap, layout = layout_heatmap)
     iplot(fig)
+    st.plotly_chart(fig, use_container_width=True)
 
 def fig8():
-    sns.pairplot(data,hue = 'gender')
+    pairplot = sns.pairplot(data,hue = 'gender')
     plt.show()
+    st.pyplot(pairplot.fig)
 
 def fig9():
-    px.bar(data_frame=data.groupby('race/ethnicity').agg({'math score' : 'mean','reading score' : 'mean','writing score' : 'mean'}), barmode='group',
+    barplot = px.bar(data_frame=data.groupby('race/ethnicity').agg({'math score' : 'mean','reading score' : 'mean','writing score' : 'mean'}), barmode='group',
        title = "<b>Ethnicity Analysis of scores</b>")
+    st.plotly_chart(barplot, use_container_width=True)
