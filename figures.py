@@ -59,6 +59,7 @@ def fig2():
     st.plotly_chart(fig, use_container_width=True)
 
 def fig3():
+    total_students = len(data)
     colors = px.colors.sequential.Viridis
     plots = []
     categories = {
@@ -72,6 +73,10 @@ def fig3():
         source = data.groupby([feature, 'gender']).size().unstack().reset_index()
         source = source.rename(columns={'male': 'Male', 'female': 'Female'})
         source = source.fillna(0)
+
+        # Convert the count to percentage
+        source['Male'] = (source['Male'] / total_students) * 100
+        source['Female'] = (source['Female'] / total_students) * 100
 
         fig = px.bar(source, x=feature, y=['Male', 'Female'], barmode='group', color_discrete_sequence=colors,
                     labels={'value': '% of Students', 'variable': 'Gender'},
