@@ -8,7 +8,7 @@ from plotly.offline import iplot
 
 data = pd.read_csv("StudentsPerformance.csv")
 
-def create_pie_chart(fig, labels, title, row, col):
+def create_pie_chart(fig, labels, title, row, col, colors):
     fig.add_trace(
         go.Pie(
             labels=labels,
@@ -34,11 +34,11 @@ def fig1():
                             [{'type': 'domain'}, {'type': 'domain'}, {'type': 'domain'}]])
 
     colors = px.colors.sequential.Viridis
-    create_pie_chart(fig, data['gender'], 'Gender', 1, 1)
-    create_pie_chart(fig, data['race/ethnicity'], 'Race', 1, 2)
-    create_pie_chart(fig, data['parental level of education'], 'ParentEduc.', 1, 3)
-    create_pie_chart(fig, data['lunch'], 'Lunch', 2, 1)
-    create_pie_chart(fig, data['test preparation course'], 'TestPrep.', 2, 2)
+    create_pie_chart(fig, data['gender'], 'Gender', 1, 1, colors)
+    create_pie_chart(fig, data['race/ethnicity'], 'Race', 1, 2, colors)
+    create_pie_chart(fig, data['parental level of education'], 'ParentEduc.', 1, 3, colors)
+    create_pie_chart(fig, data['lunch'], 'Lunch', 2, 1, colors)
+    create_pie_chart(fig, data['test preparation course'], 'TestPrep.', 2, 2, colors)
 
     fig.layout.update(title="<b>Multivariate analysis<b>", showlegend=False, height=700, width=1100,
                     template=None, titlefont={'color': 'black', 'size': 24})
