@@ -1,0 +1,4 @@
+pandas
+sns
+plotly
+matplotlib
