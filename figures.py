@@ -57,6 +57,7 @@ def fig2():
     st.plotly_chart(fig, use_container_width=True)
 
 def fig3():
+    colors = px.colors.sequential.Viridis
     plots = []
     categories = {
         'parental level of education': ["some high school", "high school", "associate's degree", "some college", "bachelor's degree", "master's degree"],
