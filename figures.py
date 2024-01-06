@@ -42,7 +42,7 @@ def fig1():
     create_pie_chart(fig, data['test preparation course'], 'TestPrep.', 2, 2, colors)
 
     fig.layout.update(title="<b>Multivariate analysis<b>", showlegend=False, height=700, width=1100,
-                    template=None, titlefont={'color': 'black', 'size': 24})
+                    template='plotly_white', titlefont={'color': 'black', 'size': 24})
     fig.show()
     st.plotly_chart(fig, use_container_width=True)
 
@@ -52,6 +52,7 @@ def fig2():
                     titlefont={'size': 28},
                     width=800, 
                     height=700,
+                    template='plotly_white'
                     )
     fig.show()
     st.plotly_chart(fig, use_container_width=True)
@@ -74,9 +75,10 @@ def fig3():
         fig = px.bar(source, x=feature, y=['Male', 'Female'], barmode='group', color_discrete_sequence=colors,
                     labels={'value': '% of Students', 'variable': 'Gender'},
                     title=f"{feature.capitalize()}",
-                    height=400)
+                    height=400,
+                    template='plotly_white')
 
-        fig.update_layout(legend=dict(orientation="v", y=1, yanchor="top", x=1.0, xanchor="right"))
+        fig.update_layout(legend=dict(orientation="v", y=1, yanchor="top", x=1.0, xanchor="right"), template='plotly_white')
 
         plots.append(fig)
 
@@ -102,7 +104,8 @@ def fig4():
                     width=750,
                     showlegend=False,
                     paper_bgcolor="lightgray",
-                    plot_bgcolor='lightgray',             
+                    plot_bgcolor='lightgray',
+                    template='plotly_white'         
     )
     fig.show()
     st.plotly_chart(fig, use_container_width=True)
@@ -130,7 +133,7 @@ def create_scatter_plot(data, gender_colors=None):
         yaxis=dict(title='Writing Score'),
         width=700,
         height=450,
-        template='simple_white'
+        template='plotly_white'
     )
 
     fig = make_subplots(rows=1, cols=1, subplot_titles=['Math and writing Score'], specs=[[{'type': 'scatter'}]])
@@ -162,7 +165,8 @@ def fig6():
                             'xanchor': 'center',
                             'yanchor': 'top'},
                     width = 700,
-                    height=450)
+                    height=450,
+                    template='plotly_white')
 
     fig = go.Figure(data = data_bp, layout = layout_bp)
     st.plotly_chart(fig, use_container_width=True)
@@ -194,5 +198,5 @@ def fig8():
 
 def fig9():
     barplot = px.bar(data_frame=data.groupby('race/ethnicity').agg({'math score' : 'mean','reading score' : 'mean','writing score' : 'mean'}), barmode='group',
-       title = "<b>Ethnicity Analysis of scores</b>")
+       title = "<b>Ethnicity Analysis of scores</b>", template='plotly_white')
     st.plotly_chart(barplot, use_container_width=True)
