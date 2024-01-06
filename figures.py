@@ -185,7 +185,6 @@ def fig7():
                     template='plotly_white')
 
     fig = go.Figure(data = data_heatmap, layout = layout_heatmap)
-    iplot(fig)
     st.plotly_chart(fig, use_container_width=True)
 
 def fig8():
