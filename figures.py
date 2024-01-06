@@ -42,7 +42,7 @@ def fig1():
     create_pie_chart(fig, data['test preparation course'], 'TestPrep.', 2, 2, colors)
 
     fig.layout.update(title="<b>Multivariate analysis<b>", showlegend=False, height=700, width=1100,
-                    template='plotly_dark', titlefont={'color': 'black', 'size': 24})
+                    template='plotly_dark', titlefont={'size': 24})
     fig.show()
     st.plotly_chart(fig, use_container_width=True)
 
