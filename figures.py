@@ -4,7 +4,7 @@ import seaborn as sns
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-from plotly.offline import iplot
+import plotly.figure_factory as ff
 import streamlit as st
 
 data = pd.read_csv("StudentsPerformance.csv")
@@ -197,3 +197,8 @@ def fig9():
     barplot = px.bar(data_frame=data.groupby('race/ethnicity').agg({'math score' : 'mean','reading score' : 'mean','writing score' : 'mean'}), barmode='group',
        title = "<b>Ethnicity Analysis of scores</b>", template='plotly_dark')
     st.plotly_chart(barplot, use_container_width=True)
+
+def fig10():
+    fig = ff.create_distplot([data[data['gender']=='male']['math score'], data[data['gender']=='female']['math score']], ['male', 'female'])
+    fig.show()
+    st.pyplot(fig)
