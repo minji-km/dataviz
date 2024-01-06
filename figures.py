@@ -143,7 +143,6 @@ def create_scatter_plot(data, gender_colors=None):
 def fig5():
     gender_colors = {'male': 'purple', 'female': 'green'}
     scatter_plot = create_scatter_plot(data, gender_colors)
-    iplot(scatter_plot)
     st.plotly_chart(scatter_plot, use_container_width=True)
 
 def fig6():
@@ -166,7 +165,6 @@ def fig6():
                     height=450)
 
     fig = go.Figure(data = data_bp, layout = layout_bp)
-    iplot(fig)
     st.plotly_chart(fig, use_container_width=True)
 
 def fig7():
