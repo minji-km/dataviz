@@ -15,7 +15,7 @@ def create_pie_chart(fig, labels, title, row, col, colors):
             labels=labels,
             values=None,
             title=title,
-            titlefont={'color': 'black', 'size': 24},
+            titlefont={'size': 24},
         ),
         row=row, col=col
     )
