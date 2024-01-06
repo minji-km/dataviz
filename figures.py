@@ -201,6 +201,6 @@ def fig9():
 
 def fig10():
     fig = ff.create_distplot([data[data['gender']=='male']['math score'], data[data['gender']=='female']['math score']], ['male', 'female'])
-    fig.update_layout(title_text='Distribution of Math Scores by Gender', title_x=0.5)
+    fig.update_layout(title={'text': 'Distribution of Math Scores by Gender', 'xanchor': 'center', 'yanchor': 'top'})
     fig.show()
     st.plotly_chart(fig, use_container_width=True)
