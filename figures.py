@@ -202,4 +202,4 @@ def fig9():
 def fig10():
     fig = ff.create_distplot([data[data['gender']=='male']['math score'], data[data['gender']=='female']['math score']], ['male', 'female'])
     fig.show()
-    st.pyplot(fig)
+    st.plotly_chart(fig, use_container_width=True)
