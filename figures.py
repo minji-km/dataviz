@@ -98,13 +98,10 @@ def fig4():
     fig.update_layout(title='<b> Test Score Comparison with stats (median quartile min max) <b>',
                     titlefont={'size': 24,
                                 'family':'San Serif',
-                                'color': 'black'
                                 },
                     xaxis_title='Test scores',
                     width=750,
                     showlegend=False,
-                    paper_bgcolor="lightgray",
-                    plot_bgcolor='lightgray',
                     template='plotly_dark'         
     )
     fig.show()
