@@ -50,7 +50,7 @@ def fig1():
 def fig2():
     fig = px.sunburst(data, path=['race/ethnicity', 'gender', 'parental level of education'])
     fig.update_layout(title_text="<b>Parental level of education in comparison with race and genre<b>", 
-                    titlefont={'size': 28},
+                    titlefont={'size': 24},
                     width=800, 
                     height=700,
                     template='plotly_dark'
